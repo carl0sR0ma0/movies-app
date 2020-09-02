@@ -3,18 +3,24 @@ import { CommonModule } from '@angular/common';
 
 import { MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesComponent } from './movies.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 
 
 @NgModule({
-  declarations: [MoviesComponent],
+  declarations: [
+    MoviesComponent,
+    MovieCardComponent
+  ],
   imports: [
     CommonModule,
     MoviesRoutingModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    FlexLayoutModule
   ]
 })
 export class MoviesModule { }
