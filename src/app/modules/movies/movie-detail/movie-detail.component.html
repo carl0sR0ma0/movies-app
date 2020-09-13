@@ -21,8 +21,7 @@
         <span *ngIf="Filme.dataLancamento" class="movieInfo">Lançado em {{Filme.dataLancamento | date: 'dd/MM/yyyy'}}</span>
       </div>
       <div *ngIf="Filme.classificacaoIndicativa || Filme.duracao" class="row">
-        <span *ngIf="Filme.classificacaoIndicativa" class="movieInfo"><b class="movieInfoBold">Classificação Indicativa: </b>{{Filme.classificacaoIndicativa}}</span>
-        &nbsp;
+        <span *ngIf="Filme.classificacaoIndicativa" class="movieInfo"><b class="movieInfoBold">Classificação Indicativa: </b>{{Filme.classificacaoIndicativa}} &nbsp; </span>
         <span *ngIf="Filme.duracao" class="movieInfo"><b class="movieInfoBold">Duração do Filme: </b>{{Filme.duracao}} min</span>
       </div>
       <div class="row">
