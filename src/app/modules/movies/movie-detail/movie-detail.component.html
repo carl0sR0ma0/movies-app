@@ -1,5 +1,6 @@
-<app-loading *ngIf="!Filme"></app-loading>
-<div *ngIf="Filme" class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center" fxLayoutAlign.gt-sm="center start" fxLayoutGap="16px">
+<app-loading *ngIf="!Filme && !hasError"></app-loading>
+<app-error *ngIf="!Filme && hasError"></app-error>
+<div *ngIf="Filme && !hasError" class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center" fxLayoutAlign.gt-sm="center start" fxLayoutGap="16px">
   <div fxFlex="50%"  fxFlex.gt-sm="20%">
     <mat-card class="mat-elevation-z0">
       <img mat-card-image class="movieCover" [src]="Filme.imagem" alt="Photo of a {{Filme.nome}}">
@@ -14,7 +15,7 @@
   <div fxFlex="50%" fxFlex.gt-sm="80%">
     <mat-card class="mat-elevation-z0">
       <div class="row">
-        <span class="mat-display-1 uppercase-text">{{Filme.nome}}</span>
+        <span class="mat-display-1 uppercase-text">{{Filme.nome}}</span>      
         <br>
         <span class="movieInfo">{{Filme.genero}}</span>
         <br>
