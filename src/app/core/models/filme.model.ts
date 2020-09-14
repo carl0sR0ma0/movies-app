@@ -5,7 +5,7 @@ export interface Filme {
   nome: String
   genero: String
   classificacaoIndicativa?: String
-  dataLancamento?: Number
+  dataLancamento?: Date
   estudio?: String
   duracao?: Number
   imagem: String
