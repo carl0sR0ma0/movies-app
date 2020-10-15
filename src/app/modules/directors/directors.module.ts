@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { DirectorsRoutingModule } from './directors-routing.module';
 import { DirectorsComponent } from './directors.component';
@@ -20,7 +24,11 @@ import { MoviesModule } from '../movies/movies.module';
     ComponentsModule,
     MatCardModule,
     FlexLayoutModule,
-    MoviesModule
+    MoviesModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class DirectorsModule { }
