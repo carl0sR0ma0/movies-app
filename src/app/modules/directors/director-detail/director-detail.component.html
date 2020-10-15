@@ -3,21 +3,22 @@
 <div *ngIf="Director && !hasError" class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
   <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
     <mat-card class="mat-elevation-z0">
-      <img mat-card-image class="directorCover-image" [src]="Director.imagem" onError="this.src='./../../../../assets/director.png'" alt="Photo of a {{Director.nome}}">
+      <img mat-card-image class="directorCover-image" [src]="Director.imagem"
+        onError="this.src='./../../../../assets/director.png'" alt="Photo of a {{Director.nome}}">
     </mat-card>
-    <div fxFlex="75%" fxFlex.xs="100%" fxFlex.sm="67%">
-      <mat-card class="mat-elevation-z0">
-        <div class="row">
-          <span class="mat-display-1 uppercase-text">{{Director.nome}}</span>
-          <br>
-          <span class="aditionalInfo">{{countMoviesOnDirector(Director.filmes.length)}}</span>
-        </div>
+  </div>
+  <div fxFlex="75%" fxFlex.xs="100%" fxFlex.sm="67%">
+    <mat-card class="mat-elevation-z0">
+      <div class="row">
+        <span class="mat-display-1 uppercase-text">{{Director.nome}}</span>
         <br>
-        <div class="row">
-          <p *ngIf="Director.biografia" class="text-p">{{Director.biografia}}</p>
-          <p *ngIf="!Director.biografia" class="text-p">Não foi informado a biografia do diretor</p>
-        </div>
-      </mat-card>
-    </div>
+        <span class="aditionalInfo">{{countMoviesOnDirector(Director.filmes.length)}}</span>
+      </div>
+      <br>
+      <div class="row">
+        <p *ngIf="Director.biografia" class="text-p">{{Director.biografia}}</p>
+        <p *ngIf="!Director.biografia" class="text-p">Não foi informado a biografia do diretor</p>
+      </div>
+    </mat-card>
   </div>
 </div>
