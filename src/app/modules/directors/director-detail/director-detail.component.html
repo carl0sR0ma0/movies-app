@@ -21,4 +21,13 @@
       </div>
     </mat-card>
   </div>
+  <div>
+    <span class="mat-subheading-2 uppercase-text">{{titleMovieOnDirector(Director.filmes.length)}}</span>
+    <br>
+    <div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let movie of Director.filmes">
+        <app-movie-card [Filme]="movie" [showHeader]="false" [showSynopsis]="false"></app-movie-card>
+      </div>
+    </div>
+  </div>
 </div>

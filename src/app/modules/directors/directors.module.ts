@@ -9,6 +9,7 @@ import { DirectorsComponent } from './directors.component';
 import { ComponentsModule } from './../../components/components.module';
 import { DirectorCardComponent } from './director-card/director-card.component';
 import { DirectorDetailComponent } from './director-detail/director-detail.component';
+import { MoviesModule } from '../movies/movies.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { DirectorDetailComponent } from './director-detail/director-detail.compo
     DirectorsRoutingModule,
     ComponentsModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MoviesModule
   ]
 })
 export class DirectorsModule { }

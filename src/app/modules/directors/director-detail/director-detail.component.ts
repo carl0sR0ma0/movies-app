@@ -45,4 +45,14 @@ export class DirectorDetailComponent implements OnInit, OnDestroy {
     })
   }
 
+  titleMovieOnDirector(nMovies: Number): String {
+    if (nMovies > 1) {
+      return 'Filmes dirigidos pelo diretor'
+    } else if (nMovies == 1) {
+      return 'Filme dirigido pelo diretor'
+    } else {
+      return 'Não há filmes dirigidos pelo diretor'
+    }
+  }
+
 }
