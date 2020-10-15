@@ -17,16 +17,16 @@
       <div class="row">
         <span class="mat-display-1 uppercase-text">{{Filme.nome}}</span>      
         <br>
-        <span class="movieInfo">{{Filme.genero}}</span>
+        <span class="aditionalInfo">{{Filme.genero}}</span>
         <br>
-        <span *ngIf="Filme.dataLancamento" class="movieInfo">Lançado em {{Filme.dataLancamento | date: 'dd/MM/yyyy'}}</span>
+        <span *ngIf="Filme.dataLancamento" class="aditionalInfo">Lançado em {{Filme.dataLancamento | date: 'dd/MM/yyyy'}}</span>
       </div>
       <div *ngIf="Filme.classificacaoIndicativa || Filme.duracao" class="row">
-        <span *ngIf="Filme.classificacaoIndicativa" class="movieInfo"><b class="movieInfoBold">Classificação Indicativa: </b>{{Filme.classificacaoIndicativa}} &nbsp; </span>
+        <span *ngIf="Filme.classificacaoIndicativa" class="aditionalInfo"><b class="movieInfoBold">Classificação Indicativa: </b>{{Filme.classificacaoIndicativa}} &nbsp; </span>
         <span *ngIf="Filme.duracao" class="movieInfo"><b class="movieInfoBold">Duração do Filme: </b>{{Filme.duracao}} min</span>
       </div>
       <div class="row">
-        <p class="movieSynopsis">{{Filme.sinopse}}</p>
+        <p class="text-p">{{Filme.sinopse}}</p>
       </div>
     </mat-card>
   </div>
