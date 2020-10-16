@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MoviesService } from './../../../core/services/movies.service';
 import { Filme } from './../../../core/models/filme.model';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateMovieComponent } from '../update-movie/update-movie.component';
 import { ConfirmComponent } from 'src/app/components/confirm/confirm.component';
+import { MyToastrService } from 'src/app/core/services/toastr.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -22,7 +23,9 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private moviesService: MoviesService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private toastr: MyToastrService,
+    private route: Router
   ) { }
 
   ngOnInit(): void {
@@ -64,6 +67,21 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
       width: '600px',
       height: '160px',
       data: `Deseja apagar ${this.Filme['nome']}? A ação é irreversível!`
+    })
+
+    dialogRef.afterClosed().subscribe(confirmed => {
+      if (confirmed) {
+        this.deleteMovie(this.Filme['_id'])
+      }
+    })
+  }
+
+  deleteMovie(movieId: String): void {
+    this.httpRequest = this.moviesService.deleteMovieById(movieId).subscribe(response => {
+      this.toastr.showToastrSucess(`O filme ${this.Filme['nome']} foi apagado com sucesso`)
+      this.route.navigate(['/movies'])
+    }, err => {
+      this.toastr.showToastrError(`${err.status} - ${err.error['message']}`)
     })
   }
 

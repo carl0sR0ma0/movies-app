@@ -32,4 +32,8 @@ export class MoviesService {
   updateMovieById(movieId: String, body: Filme): Observable<HttpResponse<Filme>> {
     return this.http.put<Filme>(`${API_URL}/filme/atualizar/${movieId}`, body, { observe: 'response' })
   }
+
+  deleteMovieById(movieId: String): Observable<HttpResponse<Filme>> {
+    return this.http.delete<Filme>(`${API_URL}/filme/apagar/${movieId}`, { observe: 'response' })
+  }
 }
