@@ -16,6 +16,7 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
   private httpRequest: Subscription
   Filme: Filme
   hasError: boolean = false
+  movieName: String
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -24,8 +25,8 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    const movieName = this.activatedRoute.snapshot.params['movieName'];
-    this.findMovieByName(movieName)
+    this.movieName = this.activatedRoute.snapshot.params['movieName'];
+    this.findMovieByName(this.movieName)
   }
 
   ngOnDestroy(): void {
@@ -44,7 +45,15 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
     const dialogRef = this.dialog.open(UpdateMovieComponent, {
       disableClose: true,
       width: '600px',
-      height: '600px'
+      height: '600px',
+      data: this.Filme
+    })
+
+    dialogRef.afterClosed().subscribe(updatedMovie => {
+      if (updatedMovie) {
+        this.Filme = undefined
+        this.findMovieByName(this.movieName)
+      }
     })
   }
 

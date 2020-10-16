@@ -28,4 +28,8 @@ export class MoviesService {
     myParams = myParams.append('nome', movieName)
     return this.http.get<any>(`${API_URL}/filme/validarNomeFilme`, { params: myParams })
   }
+
+  updateMovieById(movieId: String, body: Filme): Observable<HttpResponse<Filme>> {
+    return this.http.put<Filme>(`${API_URL}/filme/atualizar/${movieId}`, body, { observe: 'response' })
+  }
 }
