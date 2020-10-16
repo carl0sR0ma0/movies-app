@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
 
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesComponent } from './movies.component';
@@ -19,6 +20,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { ComponentsModule } from './../../components/components.module';
 import { NewMovieComponent } from './new-movie/new-movie.component';
+import { UpdateMovieComponent } from './update-movie/update-movie.component';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { NewMovieComponent } from './new-movie/new-movie.component';
     MoviesComponent,
     MovieCardComponent,
     MovieDetailComponent,
-    NewMovieComponent
+    NewMovieComponent,
+    UpdateMovieComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +45,8 @@ import { NewMovieComponent } from './new-movie/new-movie.component';
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule
   ],
   providers: [
     MatDatepickerModule,

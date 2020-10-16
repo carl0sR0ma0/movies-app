@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Atualizar filme: {{this.Movie['nome']}}</h2>
+<form [formGroup]="movieFormGroup" class="form">
+  <mat-form-field class="form-element">
+    <mat-label>Genêro</mat-label>
+    <input matInput formControlName="genero" placeholder="Genero" required>
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <mat-label>Imagem</mat-label>
+    <input matInput formControlName="imagem" placeholder="Link da Imagem" required>
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <mat-label>Sinopse</mat-label>
+    <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" formControlName="sinopse" placeholder="Sinopse" required></textarea>
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <mat-label>Classificação Indicativa</mat-label>
+    <input matInput formControlName="classificacaoIndicativa" placeholder="Classificação Indicativa">
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <mat-label>Duração</mat-label>
+    <input matInput formControlName="duracao" placeholder="Duração">
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <mat-label>Data Lançamento:</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dataLancamento">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <mat-label>Selecione um Diretor</mat-label>
+    <mat-select formControlName="diretor" [compareWith]="compareDirector" required>
+      <mat-option *ngFor="let director of directors" [value]="director">{{director.nome}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="form-element">
+    <button class="buttonForm" color="primary" mat-button [disabled]="movieFormGroup.invalid" (click)="updateMovie()">Atualizar filme</button>
+  </div>
+  <div class="form-element">
+    <button class="buttonForm" color="warn" mat-button (click)="closeDialog()">Fechar</button>
+  </div>
+</form>
