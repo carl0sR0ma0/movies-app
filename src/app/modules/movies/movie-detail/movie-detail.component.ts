@@ -5,6 +5,7 @@ import { MoviesService } from './../../../core/services/movies.service';
 import { Filme } from './../../../core/models/filme.model';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateMovieComponent } from '../update-movie/update-movie.component';
+import { ConfirmComponent } from 'src/app/components/confirm/confirm.component';
 
 @Component({
   selector: 'app-movie-detail',
@@ -54,6 +55,15 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
         this.Filme = undefined
         this.findMovieByName(this.movieName)
       }
+    })
+  }
+
+  openConfirmModal(): void {
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      disableClose: true,
+      width: '600px',
+      height: '160px',
+      data: `Deseja apagar ${this.Filme['nome']}? A ação é irreversível!`
     })
   }
 
