@@ -11,6 +11,10 @@
         <div [routerLink]="['/directors/detail/', Filme.diretor.nome]" class="directorName routerLinkClass">{{Filme.diretor.nome}}</div>
       </mat-card-header>
     </mat-card>
+    <br>
+    <div class="row">
+      <button mat-mini-fab color="primary" aria-label="Atualizar Filme" (click)="openUpdateMovieModal()"><mat-icon>edit</mat-icon></button>
+    </div>
   </div>
   <div fxFlex="50%" fxFlex.gt-sm="80%">
     <mat-card class="mat-elevation-z0">

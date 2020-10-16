@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MoviesService } from './../../../core/services/movies.service';
 import { Filme } from './../../../core/models/filme.model';
+import { MatDialog } from '@angular/material/dialog';
+import { UpdateMovieComponent } from '../update-movie/update-movie.component';
 
 @Component({
   selector: 'app-movie-detail',
@@ -17,7 +19,8 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +37,14 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
       this.Filme = response.body['data']
     }, err => {
       this.hasError = true
+    })
+  }
+
+  openUpdateMovieModal(): void {
+    const dialogRef = this.dialog.open(UpdateMovieComponent, {
+      disableClose: true,
+      width: '600px',
+      height: '600px'
     })
   }
 
