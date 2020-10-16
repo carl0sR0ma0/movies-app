@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -14,10 +15,11 @@ import { ComponentsModule } from './../../components/components.module';
 import { DirectorCardComponent } from './director-card/director-card.component';
 import { DirectorDetailComponent } from './director-detail/director-detail.component';
 import { MoviesModule } from '../movies/movies.module';
+import { NewDirectorComponent } from './new-director/new-director.component';
 
 
 @NgModule({
-  declarations: [DirectorsComponent, DirectorCardComponent, DirectorDetailComponent],
+  declarations: [DirectorsComponent, DirectorCardComponent, DirectorDetailComponent, NewDirectorComponent],
   imports: [
     CommonModule,
     DirectorsRoutingModule,
@@ -28,7 +30,8 @@ import { MoviesModule } from '../movies/movies.module';
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ]
 })
 export class DirectorsModule { }

@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { Diretor } from 'src/app/core/models/diretor.model';
 import { DirectorsService } from 'src/app/core/services/directors.service';
 import { MyToastrService } from 'src/app/core/services/toastr.service';
+import { NewDirectorComponent } from './new-director/new-director.component';
 
 
 @Component({
@@ -19,7 +21,8 @@ export class DirectorsComponent implements OnInit, OnDestroy {
 
   constructor(
     private service: DirectorsService,
-    private toastr: MyToastrService
+    private toastr: MyToastrService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -36,6 +39,21 @@ export class DirectorsComponent implements OnInit, OnDestroy {
     }, err => {
       this.hasError = true
       this.toastr.showToastrError(`${err.status} - ${err.error.message}`)
+    })
+  }
+
+  openNewDirectorModal(): void {
+    const dialogRef = this.dialog.open(NewDirectorComponent, {
+      disableClose: true,
+      width: '600px',
+      height: '600px'
+    })
+
+    dialogRef.afterClosed().subscribe(newDirectorAdded => {
+      if (newDirectorAdded) {
+        this.directors = undefined
+        this.findAllDirectors()
+      }
     })
   }
 
